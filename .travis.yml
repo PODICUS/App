@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "0.12"
 before_install:
-  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/master/configure.sh | /bin/sh"
+  - "PATH=$PATH:$HOME/.meteor"
   - "curl https://install.meteor.com/ | sh"
 services:
   - mongodb
