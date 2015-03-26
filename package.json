@@ -1,0 +1,28 @@
+{
+  "name": "PodicusApp",
+  "version": "0.0.1",
+  "description": "Parallel Online Distributed Computing Using Shaders",
+  "scripts": {
+    "start": "meteor",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PODICUS/App.git"
+  },
+  "keywords": [
+    "Parallel",
+    "Online",
+    "Distributed",
+    "Computing",
+    "Shaders"
+  ],
+  "author": "Podicus",
+  "license": "GNU GPL 3",
+  "bugs": {
+    "url": "https://github.com/PODICUS/App/issues"
+  },
+  "homepage": "https://github.com/PODICUS/App",
+  "devDependencies": {
+  }
+}
