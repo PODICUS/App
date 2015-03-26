@@ -7,3 +7,5 @@ services:
   - mongodb
 env:
   - LAIKA_OPTIONS="-t 5000"
+notifications:
+  slack: podicus:ktZkwS7LenGrezCeNto7I4Zq
