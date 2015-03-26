@@ -1,14 +1,17 @@
 <head>
-  <title>app</title>
+  <title>Meteor Tests</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <div class="container">
+    <header>
+      <h1>Meteor Tests</h1>
+    </header>
 
-  {{> hello}}
+    <ul>
+      {{#each organisations}}
+        {{ name }}
+      {{/each}}
+    </ul>
+  </div>
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
