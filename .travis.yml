@@ -4,6 +4,7 @@ node_js:
 before_install:
   - "PATH=$PATH:$HOME/.meteor"
   - "curl https://install.meteor.com/ | sh"
+  - "meteor add mike:mocha"
 services:
   - mongodb
 notifications:
