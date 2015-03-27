@@ -1,17 +1,38 @@
 <head>
-  <title>Meteor Tests</title>
+	<title>Podicus</title>
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <h1>Meteor Tests</h1>
-    </header>
-
-    <ul>
-      {{#each organisations}}
-        {{ name }}
-      {{/each}}
-    </ul>
-  </div>
 </body>
+
+<template name="welcomePage">
+
+<!-- TODO: Top 5 room -->
+<div id="welcome">
+	<form class="pure-form">
+			<fieldset>
+					<legend>Peer</legend>
+
+					<input type="text" class="input-xl" placeholder="Room id">
+
+					<button type="submit" class="pure-button pure-button-primary button-xl">Enter</button>
+			</fieldset>
+	</form>
+
+	<form class="pure-form">
+			<fieldset>
+					<legend>Organisation</legend>
+
+					<input type="email" placeholder="Email">
+					<input type="password" placeholder="Password">
+
+					<label for="remember">
+							<input id="remember" type="checkbox"> Remember me
+					</label>
+
+					<button type="submit" class="pure-button pure-button-primary">Sign in</button>
+					<a type="submit" class="pure-button">Not register ?</a>
+			</fieldset>
+	</form>
+</div>
+</template>
