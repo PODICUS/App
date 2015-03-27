@@ -1,0 +1,15 @@
+<template name="room">
+	<h1>Room {{uid}}</h1>
+
+	<div class="description">
+{{#markdown}}
+# My description
+{{/markdown}}
+	</div>
+
+	<button class="pure-button pure-button-primary button-xl">Start/stop processing</button>
+</template>
+
+<template name="no-room">
+	<h1>Please specify a room</h1>
+</template>
