@@ -1,0 +1,25 @@
+<template name="listOrganisations">
+	<h1>List of Organisations</h1>
+	{{#each organisations}}
+		{{> organisationTile}}
+	{{/each}}
+</template>
+
+<template name="organisationTile">
+	<div>
+		<h3>{{name}}</h3>
+		<div>
+			{{#each projects}}
+				{{#unless hidden}}
+					{{>projectTile}}
+				{{/unless}}
+			{{/each}}
+		</div>
+	</div>
+</template>
+
+<template name="projectTile">
+	<div>
+		{{name}}
+	</div>
+</template>

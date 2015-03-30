@@ -34,6 +34,16 @@ if (Meteor.isClient) {
 		this.render('no-room');
 	});
 
+	Router.route('/list', function () {
+		this.render('listOrganisations');
+	});
+
+	/*
+	Router.route('/list', function () {
+		this.render('list-organisations');
+	});
+	*/
+
 	Router.map(function() {
 		this.route('organisation');
 	});
