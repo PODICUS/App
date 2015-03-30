@@ -38,11 +38,12 @@ if (Meteor.isClient) {
 		this.render('listOrganisations');
 	});
 
-	/*
-	Router.route('/list', function () {
-		this.render('list-organisations');
+	Router.route('/:listOrganisations/list', function () {
+		Template.room.helpers({
+			oid: this.params.uid
+		});
+		this.render('listProjects');
 	});
-	*/
 
 	Router.map(function() {
 		this.route('organisation');

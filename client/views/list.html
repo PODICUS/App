@@ -5,6 +5,15 @@
 	{{/each}}
 </template>
 
+<template name="listProjects">
+	<h1>List of Projects</h1>
+	{{#each projects}}
+		{{#unless hidden}}
+			{{>projectTile}}
+		{{/unless}}
+	{{/each}}
+</template>
+
 <template name="organisationTile">
 	<div>
 		<h3>{{name}}</h3>
