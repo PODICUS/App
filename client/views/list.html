@@ -7,7 +7,7 @@
 
 <template name="listProjects">
 	<h1>List of Projects</h1>
-	{{#each projects}}
+	{{#each projects oid}}
 		{{#unless hidden}}
 			{{>projectTile}}
 		{{/unless}}
@@ -16,7 +16,7 @@
 
 <template name="organisationTile">
 	<div>
-		<h3>{{name}}</h3>
+		<h3><a href="{{_id}}/list">{{name}}</a></h3>
 		<div>
 			{{#each projects}}
 				{{#unless hidden}}
@@ -29,6 +29,6 @@
 
 <template name="projectTile">
 	<div>
-		{{name}}
+		<a href="{{_id}}">{{name}}</a>
 	</div>
 </template>

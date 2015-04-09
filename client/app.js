@@ -39,9 +39,10 @@ if (Meteor.isClient) {
 	});
 
 	Router.route('/:listOrganisations/list', function () {
-		Template.room.helpers({
-			oid: this.params.uid
+		Template.listProjects.helpers({
+			oid: this.params.listOrganisations
 		});
+
 		this.render('listProjects');
 	});
 
