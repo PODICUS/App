@@ -56,6 +56,12 @@ if (Meteor.isClient) {
 		this.render('listProjects', { data: data });
 	});
 
+	Router.route('/upload-shader', function () {
+		var files = ShaderFiles.find({});
+		this.render('uploadShader', { data: files });
+	});
+
+
 	Router.map(function() {
 		this.route('organisation');
 	});
