@@ -14,3 +14,6 @@ less
 markdown
 aldeed:autoform
 aldeed:collection2
+yogiben:autoform-file
+cfs:standard-packages
+cfs:gridfs
