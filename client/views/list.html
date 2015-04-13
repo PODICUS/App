@@ -1,13 +1,13 @@
 <template name="listOrganisations">
 	<h1>List of Organisations</h1>
-	{{#each organisations}}
+	{{#each this}}
 		{{> organisationTile}}
 	{{/each}}
 </template>
 
 <template name="listProjects">
-	<h1>List of Projects</h1>
-	{{#each projects oid}}
+	<h1>List of Projects for {{name}}</h1>
+	{{#each projects}}
 		{{#unless hidden}}
 			{{>projectTile}}
 		{{/unless}}

@@ -13,8 +13,8 @@ if (Meteor.isClient) {
 	Session.setDefault('counter', 0);
 
 	Template.body.helpers({
-		organisations: function () {
-			return Organisations.find({});
+		log: function () {
+			console.log(this);
 		}
 	});
 
@@ -34,16 +34,26 @@ if (Meteor.isClient) {
 		this.render('no-room');
 	});
 
-	Router.route('/list', function () {
-		this.render('listOrganisations');
+	Router.route('/organisation/new', function () {
+		this.render('newOrganisation');
 	});
 
-	Router.route('/:listOrganisations/list', function () {
-		Template.listProjects.helpers({
-			oid: this.params.listOrganisations
-		});
+	Router.route('/organisation/:oid/projects/new', function () {
+		this.render('newProject');
+	});
 
-		this.render('listProjects');
+	Router.route('/account/new', function () {
+		this.render('newAccount');
+	});
+
+	Router.route('/list', function () {
+		var data = Organisations.find();
+		this.render('listOrganisations', { data: data });
+	});
+
+	Router.route('/:oid/list', function () {
+		var data = Organisations.findOne({ _id: this.params.oid });
+		this.render('listProjects', { data: data });
 	});
 
 	Router.map(function() {
@@ -53,5 +63,4 @@ if (Meteor.isClient) {
 	Router.map(function() {
 		this.route('peer');
 	});
-
 }

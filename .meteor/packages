@@ -12,3 +12,5 @@ iron:router
 mrt:purecss
 less
 markdown
+aldeed:autoform
+aldeed:collection2
