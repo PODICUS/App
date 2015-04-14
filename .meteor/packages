@@ -17,3 +17,5 @@ aldeed:collection2
 cfs:standard-packages
 cfs:gridfs
 cfs:autoform
+accounts-ui
+accounts-password
