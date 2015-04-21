@@ -1,7 +1,6 @@
 <template name="uploadShader">
-	<h2>Upload a new Shader</h2>
+	<h1>Upload a new Shader</h1>
 	{{> quickForm collection="Shaders" id="uploadShader" class="pure-form" type="insert"}}
-	{{log}}
 	{{#each this}}
 		<a href="{{this.url}}" target="_blank">{{this.name}}</a>
 	{{/each}}

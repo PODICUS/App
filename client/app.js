@@ -8,16 +8,11 @@ if (Meteor.isClient) {
 	// 	}
 	// });
 
-
-	// counter starts at 0
-	Session.setDefault('counter', 0);
-
-	Template.body.helpers({
+	Template.welcomePage.helpers({
 		log: function () {
 			console.log(this);
 		}
 	});
-
 
 	Router.route('/', function () {
 		this.render('welcomePage');
@@ -51,9 +46,14 @@ if (Meteor.isClient) {
 		this.render('listOrganisations', { data: data });
 	});
 
-	Router.route('/:oid/list', function () {
+	Router.route('/organisation/:oid/list', function () {
 		var data = Organisations.findOne({ _id: this.params.oid });
 		this.render('listProjects', { data: data });
+	});
+
+	Router.route('/organisation/:oid/project/:pid', function () {
+		var data = Organisations.findOne({ _id: this.params.oid, 'projects._id': pid });
+		this.render('manageProject', { data: data });
 	});
 
 	Router.route('/upload-shader', function () {
@@ -68,5 +68,9 @@ if (Meteor.isClient) {
 
 	Router.map(function() {
 		this.route('peer');
+	});
+
+	Accounts.ui.config({
+		passwordSignupFields: "USERNAME_AND_EMAIL"
 	});
 }

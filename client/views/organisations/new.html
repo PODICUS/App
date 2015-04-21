@@ -1,4 +1,6 @@
 <template name="newOrganisation">
-	<h2>Create a new organisation</h2>
-	{{> quickForm collection="Organisations" id="newOrganisation" class="pure-form" type="insert"}}
+	<h1>Create a new organisation</h1>
+	{{#autoForm collection="Organisations" id="newOrganisation" type="insert"}}
+		{{> afQuickField name='name'}}
+	{{/autoForm}}
 </template>
