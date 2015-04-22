@@ -17,9 +17,6 @@
 <div id="welcome">
 	<h1><img src="logo.png" />PODICUS</h1>
 
-	<form class="pure-form">
-			<fieldset>
-					<legend>Peer</legend>
 	<h1>Home</h1>
 	<h2>Peers</h2>
 	<a href="list">List all organisations</a>
@@ -27,27 +24,6 @@
 	<h2>Organisations</h2>
 	<a href="organisation/new">Create a new organisation</a>
 
-					<button type="submit" class="pure-button pure-button-primary button-xl">Enter</button>
-
-					<a href="list">List all organisations</a>
-			</fieldset>
-	</form>
-
-	<form class="pure-form">
-			<fieldset>
-					<legend>Organisation</legend>
-
-					<input type="email" placeholder="Email">
-					<input type="password" placeholder="Password">
-
-					<label for="remember">
-							<input id="remember" type="checkbox"> Remember me
-					</label>
-
-					<button type="submit" class="pure-button pure-button-primary">Sign in</button>
-					<a href="organisation/new" type="submit" class="pure-button">Not registered?</a>
-			</fieldset>
-	</form>
 	{{> loginButtons}}
 </div>
 </template>
