@@ -16,6 +16,9 @@ Shaders.attachSchema(new SimpleSchema({
 		type: String,
 		max: 60
 	},
+	projectId : {
+		type: String
+	},
 	fileId: {
 		type: String,
 		autoform: {
