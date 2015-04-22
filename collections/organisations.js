@@ -17,5 +17,11 @@ Organisations.attachSchema(new SimpleSchema({
 	"projects.$.hidden" : {
 		type: Boolean,
 		label: "Project Hidden"
+	},
+	"projects.$.shaderId" : {
+		type: String
+	},
+	"members.$.id" : {
+		type: String
 	}
 }));

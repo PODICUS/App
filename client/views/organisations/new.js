@@ -1,10 +1,13 @@
 if (Meteor.isClient) {
-	/*Template.newOrganisation.events({
-		"submit": function (e) {
-			Router.go("/" + oid + "/list");
-
-			// Prevent default form submit
-			return false;
+	AutoForm.hooks({
+		newOrganisation: {
+			before: {
+				insert: function(doc) {
+					doc.members = [{ id: Meteor.userId() }];
+					return doc;
+				}
+			}
+			// Router.go("/" + oid + "/list");
 		}
-	});*/
+	});
 }

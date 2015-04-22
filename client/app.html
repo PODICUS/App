@@ -20,8 +20,12 @@
 	<form class="pure-form">
 			<fieldset>
 					<legend>Peer</legend>
+	<h1>Home</h1>
+	<h2>Peers</h2>
+	<a href="list">List all organisations</a>
 
-					<input type="text" class="input-xl" placeholder="Room id">
+	<h2>Organisations</h2>
+	<a href="organisation/new">Create a new organisation</a>
 
 					<button type="submit" class="pure-button pure-button-primary button-xl">Enter</button>
 
@@ -44,5 +48,6 @@
 					<a href="organisation/new" type="submit" class="pure-button">Not registered?</a>
 			</fieldset>
 	</form>
+	{{> loginButtons}}
 </div>
 </template>
