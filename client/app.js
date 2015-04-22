@@ -18,6 +18,11 @@ if (Meteor.isClient) {
 		}
 	});
 
+	Router.configure({
+		layoutTemplate: 'Layout',
+		loadingTemplate: 'Loading',
+		notFoundTemplate: 'NotFound'
+	});
 
 	Router.route('/', function () {
 		this.render('welcomePage');
@@ -64,9 +69,7 @@ if (Meteor.isClient) {
 
 	Router.map(function() {
 		this.route('organisation');
-	});
-
-	Router.map(function() {
 		this.route('peer');
 	});
+
 }

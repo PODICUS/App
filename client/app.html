@@ -5,6 +5,12 @@
 <body>
 </body>
 
+<template name="layout">
+    <div class="container">
+	{{>yield}}
+    </div>
+</template>
+
 <template name="welcomePage">
 
 <!-- TODO: Top 5 room -->
@@ -33,10 +39,8 @@
 					</label>
 
 					<button type="submit" class="pure-button pure-button-primary">Sign in</button>
-					<a type="submit" class="pure-button">Not registered?</a>
+					<a href="organisation/new" type="submit" class="pure-button">Not registered?</a>
 			</fieldset>
-
-			<a href="organisation/new">Create a new organisation</a>
 	</form>
 </div>
 </template>
