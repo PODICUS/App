@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+	</head>
+	<script>
+		var N = 512 * 512 * 4;
+		var img = new Uint8Array(N);
+		var pi = 0, n = 1;
+
+		var d1 = new Date();
+		var len = img.length * 1000;
+		for(var i = 0; i < len; i += 4) {
+			pi = pi + (4 / n) - (4 / (n + 2));
+			n = n + 4;
+		}
+
+		var dTime = new Date() - d1;
+
+		alert("Pi = " + pi + " \ntime to calculate: " + dTime);
+	</script>
+</html>
