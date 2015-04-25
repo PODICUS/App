@@ -20,58 +20,60 @@ if (Meteor.isClient) {
 		notFoundTemplate: 'NotFound'
 	});
 
-	Router.route('/', function () {
-		this.render('welcomePage');
-	});
+	Router.map(function () {
 
-	Router.route('/room/:uid', function () {
-		Template.room.helpers({
-			uid: this.params.uid
+		this.route('/', function () {
+			this.render('welcomePage');
 		});
-		this.render('room');
-	});
 
-	Router.route('/room', function () {
-		this.render('no-room');
-	});
+		this.route('/room/:uid', function () {
+			Template.room.helpers({
+				uid: this.params.uid
+			});
+			this.render('room');
+		});
 
-	Router.route('/organisation/new', function () {
-		this.render('newOrganisation');
-	});
+		this.route('/room', function () {
+			this.render('no-room');
+		});
 
-	Router.route('/organisation/:oid/projects/new', function () {
-		this.render('newProject');
-	});
+		this.route('/organisation/new', function () {
+			this.render('newOrganisation');
+		});
 
-	Router.route('/account/new', function () {
-		this.render('newAccount');
-	});
+		this.route('/organisation/:oid/projects/new', function () {
+			this.render('newProject');
+		});
 
-	Router.route('/list', function () {
-		var data = Organisations.find();
-		this.render('listOrganisations', { data: data });
-	});
+		this.route('/account/new', function () {
+			this.render('newAccount');
+		});
 
-	Router.route('/organisation/:oid/list', function () {
-		var data = Organisations.findOne({ _id: this.params.oid });
-		this.render('listProjects', { data: data });
-	});
+		this.route('/list', function () {
+			var data = Organisations.find();
+			this.render('listOrganisations', { data: data });
+		});
 
-	Router.route('/organisation/:oid/project/:pid', function () {
-		var data = Organisations.findOne({ _id: this.params.oid, 'projects._id': pid });
-		this.render('manageProject', { data: data });
-	});
+		this.route('/organisation/:oid/list', function () {
+			var data = Organisations.findOne({ _id: this.params.oid });
+			this.render('listProjects', { data: data });
+		});
 
-	Router.route('/upload-shader', function () {
-		var files = ShaderFiles.find({});
-		this.render('uploadShader', { data: files });
-	});
+		this.route('/organisation/:oid/project/:pid', function () {
+			var data = Organisations.findOne({ _id: this.params.oid, 'projects._id': pid });
+			this.render('manageProject', { data: data });
+		});
 
+		this.route('/upload-shader', function () {
+			var files = ShaderFiles.find({});
+			this.render('uploadShader', { data: files });
+		});
 
-	Router.map(function() {
 		this.route('organisation');
+		
 		this.route('peer');
 	});
+
 
 	Accounts.ui.config({
 		passwordSignupFields: "USERNAME_AND_EMAIL"
