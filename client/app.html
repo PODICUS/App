@@ -11,18 +11,16 @@
   <div class="container">
     {{> yield}}
   </div>
+
+  {{> footer}}
 </template>
 
-
-<template name="nav">
-<div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
-    <a href="#" class="pure-menu-link pure-menu-heading">PODICUS</a>
-    <ul class="pure-menu-list">
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Support</a></li>
-    </ul>
-</div>
+<template name="homeLayout">
+  <div class="container">
+    {{> yield}}
+  </div>
 </template>
+
 
 <template name="welcomePage">
 

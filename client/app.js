@@ -20,11 +20,8 @@ if (Meteor.isClient) {
 		notFoundTemplate: 'NotFound'
 	});
 
-	Router.route('/', function () {
-		this.render('welcomePage');
-	});
-
 	Router.map(function () {
+		this.route('/', { layoutTemplate: 'homeLayout', name: 'welcomePage' });
 
 		this.route('/room/:uid', function () {
 			Template.room.helpers({
@@ -40,7 +37,7 @@ if (Meteor.isClient) {
 		this.route('/organisation/:oid/projects/new', {name: 'newProject'});
 
 		this.route('/account/new', {name: 'newAccount'});
-		
+
 		this.route('/list', function () {
 			var data = Organisations.find();
 			this.render('listOrganisations', { data: data });
@@ -64,8 +61,6 @@ if (Meteor.isClient) {
 		this.route('organisation');
 		
 		this.route('peer');
-
-		// this.render('nav', {to: 'nav'});
 	});
 
 
