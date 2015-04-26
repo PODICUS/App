@@ -10,12 +10,22 @@
             {{username}}
         </div>
         <div class="pure-control-group">
-            <label for="name">Email</label>
+            <label for="email">Email</label>
 			{{#each emails}}
 				{{address}}<br>
 			{{/each}}
         </div>
 	{{/with}}
+
+
+	<!-- TODO -->
+	{{#each myOrganisations}}
+        <div class="pure-control-group">
+            <label for="name">Name</label>
+            {{name}}
+            {{this}}
+        </div>
+	{{/each}}
 
 	<br>
 	<!-- TODO -->
