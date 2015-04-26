@@ -1,15 +1,30 @@
 <template name="nav">
-<div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
-    <a href="#" class="pure-menu-link pure-menu-heading">PODICUS</a>
+<div class="menu pure-menu pure-menu-horizontal pure-menu-fixed pure-menu-open">
+    <a href="/" class="pure-menu-heading pure-menu-link">PODICUS</a>
     <ul class="pure-menu-list">
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Support</a></li>
+        <li class="pure-menu-item"><a href="/list" class="pure-menu-link">List</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">FAQ</a></li>
+        <li class="pure-menu-item">{{> loginButtons}}</li>
     </ul>
 </div>
 </template>
+
 
 <template name="footer">
 <div class="footer">
     PODICUS 2015
 </div>
+</template>
+
+
+<template name="NotFound">
+<pre>
+______  ___  _____  _____   _   _ _____ _____  ______ _____ _   _ _   _______ 
+| ___ \/ _ \|  __ \|  ___| | \ | |  _  |_   _| |  ___|  _  | | | | \ | |  _  \
+| |_/ / /_\ \ |  \/| |__   |  \| | | | | | |   | |_  | | | | | | |  \| | | | |
+|  __/|  _  | | __ |  __|  | . ` | | | | | |   |  _| | | | | | | | . ` | | | |
+| |   | | | | |_\ \| |___  | |\  \ \_/ / | |   | |   \ \_/ / |_| | |\  | |/ / 
+\_|   \_| |_/\____/\____/  \_| \_/\___/  \_/   \_|    \___/ \___/\_| \_/___/
+
+</pre>
 </template>
