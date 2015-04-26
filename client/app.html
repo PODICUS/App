@@ -5,20 +5,24 @@
 <body>
 </body>
 
+
 <template name="layout">
-  {{> nav}}
-
-  <div class="container">
-    {{> yield}}
-  </div>
-
-  {{> footer}}
+	<div class="container">
+		{{> nav}}
+		<div class="content">
+			{{> yield}}
+		</div>
+  		{{> footer}}
+	</div>
 </template>
 
+
 <template name="homeLayout">
-  <div class="container">
-    {{> yield}}
-  </div>
+	<div class="container">
+		<div class="content">
+			{{> yield}}
+		</div>
+	</div>
 </template>
 
 
