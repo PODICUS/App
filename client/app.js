@@ -43,11 +43,7 @@ if (Meteor.isClient) {
 		this.route('/account/new', {name: 'newAccount'});
 
 		this.route('/account', function() {
-			var user = Meteor.user();
-
-			console.log(user);
-
-			this.render('accounts.index', user);
+			this.render('accounts.index');
 		});
 
 		this.route('/list', function () {
