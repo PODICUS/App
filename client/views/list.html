@@ -6,7 +6,7 @@
 </template>
 
 <template name="listProjects">
-	<h1>List of Projects for {{name}}</h1>
+	<h1>List of Projects for {{name}} {{oid}} {{{this}}}</h1>
 	{{#each projects}}
 		{{#unless hidden}}
 			{{>projectTile}}

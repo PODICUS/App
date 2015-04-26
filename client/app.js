@@ -14,6 +14,10 @@ if (Meteor.isClient) {
 		}
 	});
 
+	Template.body.helpers.username = (function () {
+		return Meteor.user().username;
+	});
+
 	Router.configure({
 		layoutTemplate: 'Layout',
 		loadingTemplate: 'Loading',
@@ -38,6 +42,14 @@ if (Meteor.isClient) {
 
 		this.route('/account/new', {name: 'newAccount'});
 
+		this.route('/account', function() {
+			var user = Meteor.user();
+
+			console.log(user);
+
+			this.render('accounts.index', user);
+		});
+
 		this.route('/list', function () {
 			var data = Organisations.find();
 			this.render('listOrganisations', { data: data });
@@ -45,7 +57,8 @@ if (Meteor.isClient) {
 
 		this.route('/organisation/:oid/list', function () {
 			var data = Organisations.findOne({ _id: this.params.oid });
-			this.render('listProjects', { data: data });
+			// var user = Meteor.user()
+			this.render('listProjects', { oid: this.params.oid, data: data });
 		});
 
 		this.route('/organisation/:oid/project/:pid', function () {

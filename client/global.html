@@ -4,6 +4,9 @@
     <ul class="pure-menu-list">
         <li class="pure-menu-item"><a href="/list" class="pure-menu-link">List</a></li>
         <li class="pure-menu-item"><a href="#" class="pure-menu-link">FAQ</a></li>
+        {{#if currentUser}}
+        <li class="pure-menu-item"><a href="/account" class="pure-menu-link">My account</a></li>
+        {{/if}}
         <li class="pure-menu-item">{{> loginButtons}}</li>
     </ul>
 </div>
