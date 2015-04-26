@@ -1,13 +1,27 @@
 <template name="accounts.index">
 	<h1>My account</h1>
 
-	User: {{username}}
-	email: {{emails}}
-	
-{{#each this}}
-	User: {{username}}
-	email: {{emails}}
-{{/each}}
-	
+{{#if currentUser}}
+<form class="pure-form pure-form-aligned">
+	<fieldset>
+	{{#with currentUser}}
+        <div class="pure-control-group">
+            <label for="name">Username</label>
+            {{username}}
+        </div>
+        <div class="pure-control-group">
+            <label for="name">Email</label>
+			{{#each emails}}
+				{{address}}<br>
+			{{/each}}
+        </div>
+	{{/with}}
+	</fieldset>
+</form>
+
+{{else}}
+You are not connected
+{{/if}}
 
 </template>
+
