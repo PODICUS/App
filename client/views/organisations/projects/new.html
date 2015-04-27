@@ -1,3 +1,9 @@
 <template name="newProject">
 	<h2>New Project</h2>
+	{{#autoForm collection="Organisations" id="newProject" type="update-pushArray" scope="projects"}}
+		{{> afQuickField name='name'}}
+		{{> afQuickField name='description'}}
+		{{> afQuickField name='hidden'}}
+    	<button type="submit" class="btn btn-primary">Create</button>
+	{{/autoForm}}
 </template>

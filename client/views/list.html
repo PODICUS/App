@@ -17,7 +17,7 @@
 
 <template name="organisationTile">
 	<div>
-		<h3><a href="/organisation/{{_id}}/list">{{name}}</a></h3>
+		<h3><a href="/organisation/{{_id}}/project/list">{{name}}</a></h3>
 		<div>
 			{{#each projects}}
 				{{#unless hidden}}
@@ -30,6 +30,6 @@
 
 <template name="projectTile">
 	<div>
-		<a href="{{_id}}">{{name}}</a>
+		<a href="project/{{_id}}">{{name}}</a>
 	</div>
 </template>

@@ -1,6 +1,7 @@
 <template name="newOrganisation">
 	<h1>Create a new organisation</h1>
-	{{#autoForm collection="Organisations" id="newOrganisation" type="insert"}}
+	{{#autoForm collection="Organisations" doc=this id="newOrganisation" type="insert"}}
 		{{> afQuickField name='name'}}
+   		<button type="submit" class="btn btn-primary">Create</button>
 	{{/autoForm}}
 </template>

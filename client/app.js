@@ -54,8 +54,13 @@ if (Meteor.isClient) {
 			this.render('listProjects', { data: data });
 		});
 
+		this.route('/organisation/:oid/project/new', function () {
+			var data = Organisations.findOne({ _id: this.params.oid });
+			this.render('newProject', { data: data });
+		});
+
 		this.route('/organisation/:oid/project/:pid', function () {
-			var data = Organisations.findOne({ _id: this.params.oid, 'projects._id': pid });
+			var data = Organisations.findOne({ _id: this.params.oid, 'projects._id': this.params.pid });
 			this.render('manageProject', { data: data });
 		});
 
