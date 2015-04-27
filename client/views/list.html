@@ -6,12 +6,13 @@
 </template>
 
 <template name="listProjects">
-	<h1>List of Projects for {{name}} {{oid}} {{{this}}}</h1>
+	<h1>List of Projects for {{name}}</h1>
 	{{#each projects}}
 		{{#unless hidden}}
 			{{>projectTile}}
 		{{/unless}}
 	{{/each}}
+	<a href="/organisation/{{_id}}/project/new">Add a new project</a>
 </template>
 
 <template name="organisationTile">

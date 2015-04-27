@@ -39,13 +39,8 @@ if (Meteor.isClient) {
 		this.route('/account/new', {name: 'newAccount'});
 
 		this.route('/account', function() {
-			this.render('accounts.index', {
-				data: function() {
-					return Organisations
-						.find({ $where: function() { return this.members[0].id === Meteor.user()._id; } })
-						.fetch();
-					}
-			});
+			var data = Organisations.find({ members: { $elemMatch: { id: Meteor.userId() } } });
+			this.render('accounts.index', { data: data });
 		});
 
 		this.route('/list', function () {
@@ -55,9 +50,8 @@ if (Meteor.isClient) {
 
 		this.route('/organisation/:oid/list', function () {
 			var oid = this.params.oid;
-			console.log(oid);
-			data.organisations = function() { return Organisations.findOne({ _id: oid }); };
-			this.render('listProjects', data);
+			var data = Organisations.findOne({ _id: oid });
+			this.render('listProjects', { data: data });
 		});
 
 		this.route('/organisation/:oid/project/:pid', function () {
