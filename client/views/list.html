@@ -7,12 +7,15 @@
 
 <template name="listProjects">
 	<h1>List of Projects for {{name}}</h1>
+	<ul class="projects-list">
 	{{#each projects}}
 		{{#unless hidden}}
-			{{>projectTile}}
+			<li>{{>projectTile}}</li>
 		{{/unless}}
 	{{/each}}
-	<a href="/organisation/{{_id}}/project/new">Add a new project</a>
+	</ul>
+
+	<a class="pure-button" href="/organisation/{{_id}}/project/new">Add a new project</a>
 </template>
 
 <template name="organisationTile">
