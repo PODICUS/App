@@ -1,0 +1,94 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+<!--<script type="text/javascript" src="static/OriginalSylvester.js">  </script>test-->
+<script type="text/javascript" src="static/sylvester.js">  </script>
+<script>
+function createArrayMatrix(width, height, valueOne, valueTwo){
+    /*arrayMatrix = []
+    row = []
+    for(i = 0; i < width; ++i){
+        if(i % 2 == 0)
+            row[row.length] = valueOne;
+         if(i % 2 == 1){
+	     if(valueTwo)
+                row[row.length] = valueTwo;
+             else
+                row[row.length] = valueOne;
+	}
+    }
+    for(i = 0; i < height; ++i){
+      arrayMatrix[arrayMatrix.length] = row.slice();
+    }
+    return arrayMatrix;*/
+    var Pi=0;
+    var n=1
+    var N = 10000;
+    var time1 = new Date();
+    var N = width*height*4;
+    var img = new Uint8Array(N);
+    var Pi=0;
+    var n=1;
+    //document.write("\n")
+    var d1 = new Date();
+    for(var i = 0;i < img.length * 1000; i+=4){
+      Pi=Pi+(4/n)-(4/(n+2))
+      
+      img[i] += (n >> 24) % 256;
+      img[i+1] += (n >> 16) % 256;
+      img[i+2] += (n >> 8) % 256;
+      img[i+3] += (n) % 256;
+      /*document.write(n)
+      if(n % 100 > 90)
+        document.write("\n")*/
+      n=n+4   
+    }
+    var d2 = new Date();
+    var difference = d2 - d1;
+
+    alert("Pi = " + Pi + " \ntime to calculate: " + difference);
+
+    return img;
+}
+$(document).ready(function(){
+$("#execute").click(function(){
+  var startDate = new Date();
+  one = $M(createArrayMatrix(1024, 1024, 1, 2));
+  other = $M(createArrayMatrix(1024, 1024, 1));
+  two = one.multiply(other);
+  alert((new Date() - startDate) / 1000.0);
+});
+$("#executeSample").click(function(){
+    var one = $M([[1,2], [1,2]]);
+    var two= $M([[1,2], [1,2]]);
+    var result = one.multiply(two)
+    alert(result.elements);
+});
+});
+</script>
+</head>
+<body>
+<div style="padding: 5px; border: 1px solid black; position:relative; width:500px">
+This page includes the sylvester library, modified to use the gpu for matrix multiply, the api is exactly the same as the orignal sylvester. Hit execute to benchmark a multiply of two 1024x1024 matrices<br/>
+</div>
+<input id="execute" type="button" value="execute"><br/><br/>
+Open up firebug or the console to test it out <br/>
+example code:
+<pre>
+<code>
+    var one = $M([[1,2], [1, 2 ]]);
+    var two= $M([[1,2], [1, 2 ]]);
+    var result = one.multiply(two)
+    alert(result.elements);
+</code>
+</pre>
+<input id="executeSample" type="button" value="execute"><br/><br/>
+
+
+<span><a href="sylvesterTest.html">gpu sylvester</a>&nbsp;&nbsp;&nbsp;<a href="sylvesterTestOriginal.html">original sylvester</a></span>
+
+
+<br/><br/><br/><span>WebGL is required, below are instructinons to enable WebGL for Safari</span><br/>
+            <a href='http://webkit.org/blog/603/webgl-now-available-in-webkit-nightlies/'>webkit WebGL instructions</a><br/>
+</body>
+</html>
