@@ -21,13 +21,13 @@
 <template name="organisationTile">
 	<div>
 		<h3><a href="/organisation/{{_id}}/project/list">{{name}}</a></h3>
-		<div>
+		<ul>
 			{{#each projects}}
 				{{#unless hidden}}
-					{{>projectTile}}
+					<li><a href="/organisation/{{_id}}/project/{{projects._id}}">{{>projectTile}}</a></li>
 				{{/unless}}
 			{{/each}}
-		</div>
+		</ul>
 	</div>
 </template>
 
