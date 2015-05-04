@@ -20,9 +20,8 @@
 			<h2>My organizations</h2>
 			{{#each this}}
 				<div class="pure-control-group">
-					<label for="name">Organization</label>
-					<a href="/organisation/{{_id}}/project/list">{{name}}</a>
-					{{log}}
+					<label for="organization">Organization</label>
+					<a href="/organisation/{{_id}}/list">{{name}}</a>
 				</div>
 			{{/each}}
 
