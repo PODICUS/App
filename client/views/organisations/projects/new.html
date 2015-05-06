@@ -1,22 +1,26 @@
 <template name="newProject">
 {{#autoForm collection="Organisations" doc=this id="newProject" type="update-pushArray" scope="projects" class="pure-form pure-form-aligned"}}
 	<h2>New Project</h2>
-    <fieldset>
-        <div class="pure-control-group">
-			{{> afQuickField class="pure-input-1-2" name="name" value=""}}
+	<fieldset>
+        <div class="pure-control-group" style="display: none;">
+            {{> afQuickField class="pure-input-1-2" name="_id" value="fixme"}}
         </div>
 
         <div class="pure-control-group">
-			{{> afQuickField class="pure-input-1-2" name="description" rows=10}}
+            {{> afQuickField class="pure-input-1-2" name="name"}}
         </div>
-        
-        <div class="pure-control-group">
-        	<label for="terms" class="pure-checkbox">
+
+		<div class="pure-control-group">
+			{{> afQuickField class="pure-input-1-2" name="description" rows=10}}
+		</div>
+		
+		<div class="pure-control-group">
+			<label for="terms" class="pure-checkbox">
 				{{> afQuickField name="hidden"}}
 			</label>
 
-    		<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Create</button>
-        </div>
-    </fieldset>
+			<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Create</button>
+		</div>
+	</fieldset>
 {{/autoForm}}
 </template>
