@@ -1,6 +1,4 @@
 if(Meteor.isClient) {
-	SimpleSchema.debug = true;
-
 	AutoForm.hooks({
 		newProject: {
 			before: {
