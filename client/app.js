@@ -65,7 +65,7 @@ if (Meteor.isClient) {
 			this.render('manageProject', { data: data });
 		});
 
-		this.route('/upload-shader', function () {
+		this.route('/organisation/:oid/project/:pid/upload-shader', function () {
 			var files = ShaderFiles.find({});
 			this.render('uploadShader', { data: files });
 		});
