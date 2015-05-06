@@ -60,13 +60,8 @@ if (Meteor.isClient) {
 		});
 
 		this.route('/organisation/:oid/project/:pid', function () {
-			var orga = Organisations.findOne({ _id: this.params.oid });
-			console.log(orga);
-
-			console.log(orga.findOne({'_id': this.params.pid}));
-
 			var data = Organisations.findOne({ _id: this.params.oid, 'projects._id': this.params.pid });
-			console.log(data);
+
 			this.render('manageProject', { data: data });
 		});
 
