@@ -1,7 +1,7 @@
 <template name="manageProject">
-	<h1>Manage Project: {{name}}</h1>
+	<h1>Manage Project: {{projects.[0].name}}</h1>
 	{{log}}
 {{#with this}}
-	{{name}} {{_id}}
+	{{name}}
 {{/with}}
 </template>
