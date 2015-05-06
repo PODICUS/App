@@ -5,7 +5,7 @@ Organisations.attachSchema(new SimpleSchema({
 		label: "Name",
 		max: 100
 	},
-	"projects.$.id" : {
+	"projects.$._id" : {
 		type: String
 	},
 	"projects.$.name" : {
