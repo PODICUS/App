@@ -1,7 +1,7 @@
 {
   "name": "PodicusApp",
   "version": "0.0.1",
-  "description": "Parallel Online Distributed Computing Using Shaders",
+  "description": "Parallel Online Distributed Computing Using ASMJS",
   "scripts": {
     "start": "meteor",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,7 @@
     "Online",
     "Distributed",
     "Computing",
-    "Shaders"
+    "ASMJS"
   ],
   "author": "Podicus",
   "license": "GNU GPL 3",
