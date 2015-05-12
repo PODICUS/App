@@ -15,7 +15,7 @@
 	{{/each}}
 	</ul>
 
-	<a class="pure-button" href="/organisation/{{_id}}/project/new">Add a new project</a>
+	<a class="pure-button" href="/organisation/{{_id}}/new-project">Add a new project</a>
 </template>
 
 <template name="organisationTile">
@@ -24,7 +24,7 @@
 		<ul>
 			{{#each projects}}
 				{{#unless hidden}}
-					<li><a href="/organisation/{{_id}}/project/{{projects._id}}">{{>projectTile}}</a></li>
+					<li><a href="project/{{projects._id}}">{{>projectTile}}</a></li>
 				{{/unless}}
 			{{/each}}
 		</ul>

@@ -34,7 +34,7 @@ if (Meteor.isClient) {
 
 		this.route('/organisation/new', {name: 'newOrganisation'});
 
-		this.route('/organisation/:oid/projects/new', {name: 'newProject'});
+		// this.route('/organisation/:oid/projects/new', {name: 'newProject'});
 
 		this.route('/account/new', {name: 'newAccount'});
 
@@ -54,20 +54,24 @@ if (Meteor.isClient) {
 			this.render('listProjects', { data: data });
 		});
 
-		this.route('/organisation/:oid/project/new', function () {
+		this.route('/organisation/:oid/new-project', function () {
 			var data = Organisations.findOne({ _id: this.params.oid });
 			this.render('newProject', { data: data });
 		});
 
-		this.route('/organisation/:oid/project/:pid', function () {
-			var data = Organisations.findOne({ _id: this.params.oid, 'projects._id': this.params.pid });
+		this.route('/project/:pid', function () {
+			var data = Organisations.findOne({"projects._id": this.params.pid}, {_id: 0, 'projects.$': 1});
+			// var data = Organisations.findOne({projects: { $elemMatch: {_id: this.params.pid} } }, {"projects.$": 1});
+
+			console.log(data);
+			// var data = Organisations.findOne({ _id: this.params.oid, 'projects._id': this.params.pid });
 
 			this.render('manageProject', { data: data });
 		});
 
-		this.route('/organisation/:oid/project/:pid/upload-shader', function () {
+		this.route('/project/:pid/upload-code', function () {
 			var files = ShaderFiles.find({});
-			this.render('uploadShader', { data: files });
+			this.render('uploadCode', { data: files });
 		});
 
 		this.route('organisation');
