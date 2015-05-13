@@ -13,4 +13,7 @@ Projects.attachSchema(new SimpleSchema({
 		type: Boolean,
 		label: "Project Hidden"
 	},
+	"organisationId" : {
+		type: String
+	}
 }));

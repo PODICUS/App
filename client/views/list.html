@@ -8,7 +8,7 @@
 <template name="listProjects">
 	<h1>List of Projects for {{name}}</h1>
 	<ul class="projects-list">
-	{{#each projects}}
+	{{#each this}}
 		{{#unless hidden}}
 			<li>{{>projectTile}}</li>
 		{{/unless}}
@@ -21,18 +21,11 @@
 <template name="organisationTile">
 	<div>
 		<h3><a href="/organisation/{{_id}}/list">{{name}}</a></h3>
-		<ul>
-			{{#each projects}}
-				{{#unless hidden}}
-					<li><a href="project/{{projects._id}}">{{>projectTile}}</a></li>
-				{{/unless}}
-			{{/each}}
-		</ul>
 	</div>
 </template>
 
 <template name="projectTile">
 	<div>
-		<a href="project/{{_id}}">{{name}}</a>
+		<a href="/project/{{_id}}">{{name}}</a>
 	</div>
 </template>

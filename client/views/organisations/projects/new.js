@@ -2,8 +2,9 @@ if(Meteor.isClient) {
 	AutoForm.hooks({
 		newProject: {
 			before: {
-				'update-pushArray': function (doc) {
-					doc._id = Random.id();
+				insert: function(doc) {
+					var oid = this.currentDoc._id;
+					doc.organisationId = oid;
 					return doc;
 				}
 			}

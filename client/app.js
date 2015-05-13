@@ -50,7 +50,8 @@ if (Meteor.isClient) {
 
 		this.route('/organisation/:oid/list', function () {
 			var oid = this.params.oid;
-			var data = Organisations.findOne({ _id: oid });
+			var data = Projects.find({ organisationId: oid });
+			console.log(data)
 			this.render('listProjects', { data: data });
 		});
 
@@ -60,12 +61,8 @@ if (Meteor.isClient) {
 		});
 
 		this.route('/project/:pid', function () {
-			var data = Organisations.findOne({"projects._id": this.params.pid}, {_id: 0, 'projects.$': 1});
-			// var data = Organisations.findOne({projects: { $elemMatch: {_id: this.params.pid} } }, {"projects.$": 1});
-
-			console.log(data);
-			// var data = Organisations.findOne({ _id: this.params.oid, 'projects._id': this.params.pid });
-
+			var data = Projects.findOne({ _id: this.params.pid });
+			
 			this.render('manageProject', { data: data });
 		});
 
