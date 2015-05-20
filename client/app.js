@@ -79,7 +79,7 @@ if (Meteor.isClient) {
 		});
 
 		this.route('/project/:pid/upload-code', function () {
-			var files = ShaderFiles.find({});
+			var files = CodeFiles.find({});
 			this.render('uploadCode', { data: files });
 		});
 

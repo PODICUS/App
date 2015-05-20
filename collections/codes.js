@@ -1,17 +1,17 @@
-Shaders = new Mongo.Collection('shaders');
+Codes = new Mongo.Collection('codes');
 
-ShaderFiles = new FS.Collection("shaderFiles", {
-	stores: [new FS.Store.GridFS("shaderFilesStore", {})]
+CodeFiles = new FS.Collection("codeFiles", {
+	stores: [new FS.Store.GridFS("codeFilesStore", {})]
 });
 
-ShaderFiles.allow({
+CodeFiles.allow({
 	download: function () {
 		return true;
 	},
 	fetch: null
 });
 
-Shaders.attachSchema(new SimpleSchema({
+Codes.attachSchema(new SimpleSchema({
 	title: {
 		type: String,
 		max: 60
@@ -24,7 +24,7 @@ Shaders.attachSchema(new SimpleSchema({
 		autoform: {
 			afFieldInput: {
 				type: "cfs-file",
-				collection: "shaderFiles"
+				collection: "codeFiles"
 			}
 		}
 	}
