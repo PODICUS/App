@@ -1,4 +1,3 @@
-
 if (Meteor.isClient) {
 	// Router.onBeforeAction(function() {
 	// 	if (! Meteor.userId()) {
@@ -33,8 +32,6 @@ if (Meteor.isClient) {
 		this.route('/room', {name: 'no-room'});
 
 		this.route('/organisation/new', {name: 'newOrganisation'});
-
-		// this.route('/organisation/:oid/projects/new', {name: 'newProject'});
 
 		this.route('/account/new', {name: 'newAccount'});
 
@@ -82,10 +79,6 @@ if (Meteor.isClient) {
 			var files = AsmjsFiles.find({});
 			this.render('uploadCode', { data: files });
 		});
-
-		this.route('organisation');
-		
-		this.route('peer');
 	});
 
 
