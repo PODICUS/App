@@ -79,7 +79,7 @@ if (Meteor.isClient) {
 		});
 
 		this.route('/project/:pid/upload-code', function () {
-			var files = CodeFiles.find({});
+			var files = AsmjsFiles.find({});
 			this.render('uploadCode', { data: files });
 		});
 
