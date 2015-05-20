@@ -50,9 +50,15 @@ if (Meteor.isClient) {
 
 		this.route('/organisation/:oid/list', function () {
 			var oid = this.params.oid;
-			var data = Projects.find({ organisationId: oid });
-			console.log(data)
-			this.render('listProjects', { data: data });
+			var organisation = Organisations.findOne({ _id: oid });
+			var projects = Projects.find({ organisationId: oid });
+			console.log(projects)
+			this.render('listProjects', {
+				data: {
+					organisation: organisation,
+					projects: projects
+				}
+			});
 		});
 
 		this.route('/organisation/:oid/new-project', function () {

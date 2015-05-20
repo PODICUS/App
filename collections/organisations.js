@@ -5,7 +5,7 @@ Organisations.attachSchema(new SimpleSchema({
 		label: "Name",
 		max: 100
 	},
-	"members.$.id" : {
-		type: String
+	"members" : {
+		type: [String]
 	}
 }));

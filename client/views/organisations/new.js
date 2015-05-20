@@ -3,11 +3,16 @@ if (Meteor.isClient) {
 		newOrganisation: {
 			before: {
 				insert: function(doc) {
-					doc.members = [{ id: Meteor.userId() }];
+					doc.members = [ Meteor.userId() ];
 					return doc;
 				}
+			},
+			
+			after: {
+				insert: function (err, result) {
+					Router.go("/organisation/" + result + "/list");
+				}
 			}
-			// Router.go("/" + oid + "/list");
 		}
 	});
 }
