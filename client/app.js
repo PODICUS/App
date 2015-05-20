@@ -52,7 +52,7 @@ if (Meteor.isClient) {
 			var oid = this.params.oid;
 			var organisation = Organisations.findOne({ _id: oid });
 			var projects = Projects.find({ organisationId: oid });
-			console.log(projects)
+
 			this.render('listProjects', {
 				data: {
 					organisation: organisation,
@@ -67,6 +67,12 @@ if (Meteor.isClient) {
 		});
 
 		this.route('/project/:pid', function () {
+			var data = Projects.findOne({ _id: this.params.pid });
+
+			this.render('projectPeer', { data: data });
+		});
+
+		this.route('/project/:pid/manage', function () {
 			var data = Projects.findOne({ _id: this.params.pid });
 			
 			this.render('manageProject', { data: data });
