@@ -1,4 +1,11 @@
 <template name="manageProject">
 	<h1>Manage Project: {{name}}</h1>
+	{{#autoForm collection="Projects" doc=this id="manageProject" type="update"}}
+		{{> afQuickField name='name'}}
+		{{> afQuickField name='description'}}
+		{{> afQuickField name='hidden'}}
+		{{> afQuickField name='parameters'}}
+   		<button type="submit" class="btn btn-primary">Update</button>
+	{{/autoForm}}
 	<a href="upload-code">Upload your code</a>
 </template>
