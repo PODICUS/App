@@ -75,6 +75,13 @@ if (Meteor.isClient) {
 			this.render('manageProject', { data: data });
 		});
 
+		this.route('/project/:pid/results', function () {
+			var project = Projects.findOne({ _id: this.params.pid });
+			var json = JSON.stringify(project.results, null, 4);
+
+			this.render('projectResults', { data: { project: project, json: json }});
+		});
+
 		this.route('/project/:pid/upload-code', function () {
 			var files = AsmjsFiles.find({});
 			this.render('uploadCode', { data: files });
