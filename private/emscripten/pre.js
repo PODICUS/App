@@ -1,6 +1,6 @@
 (function(){
 	console.log = function (message) {
-		postMessage(message);
+		postMessage({ type: 'output', message: message });
 	};
 })();
 

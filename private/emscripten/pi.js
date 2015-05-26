@@ -1,21 +1,16 @@
-var console = {};
-var arguments;
-
 (function(){
 	console.log = function (message) {
-    	postMessage(message);
+		postMessage({ type: 'output', message: message });
 	};
 })();
 
 onmessage = function (e) {
-  arguments = e.data.arguments;
-  postMessage(arguments);
-  //run_program();
-  run_program.apply(null, arguments);
+	arguments = e.data.arguments;
+	postMessage(arguments);
+	run_program.apply(null, arguments);
 }
 
 function run_program() {
-//arguments = ["42", "23"]
 // The Module object: Our interface to the outside world. We import
 // and export values on it, and do the work to get that through
 // closure compiler if necessary. There are various ways Module can be used:
@@ -8204,7 +8199,7 @@ function _malloc($bytes) {
       $727 = (($tbase$253$i) + ($$sum1$i20$i)|0);
       HEAP32[$727>>2] = $726;
       $728 = ($720|0)==($635|0);
-      L354: do {
+      L355: do {
        if ($728) {
         $729 = HEAP32[(92)>>2]|0;
         $730 = (($729) + ($725))|0;
@@ -8241,7 +8236,7 @@ function _malloc($bytes) {
          $744 = $741 & -8;
          $745 = $741 >>> 3;
          $746 = ($741>>>0)<(256);
-         L361: do {
+         L362: do {
           if ($746) {
            $$sum3738$i$i = $719 | 8;
            $$sum122$i = (($$sum3738$i$i) + ($tsize$252$i))|0;
@@ -8419,7 +8414,7 @@ function _malloc($bytes) {
              $805 = HEAP32[(84)>>2]|0;
              $806 = $805 & $804;
              HEAP32[(84)>>2] = $806;
-             break L361;
+             break L362;
             } else {
              $807 = HEAP32[(96)>>2]|0;
              $808 = ($771>>>0)<($807>>>0);
@@ -8438,7 +8433,7 @@ function _malloc($bytes) {
              }
              $813 = ($R$1$i$i|0)==(0|0);
              if ($813) {
-              break L361;
+              break L362;
              }
             }
            } while(0);
@@ -8677,7 +8672,7 @@ function _malloc($bytes) {
            $$sum25$i$i = (($$sum$i19$i) + 8)|0;
            $914 = (($tbase$253$i) + ($$sum25$i$i)|0);
            HEAP32[$914>>2] = $724;
-           break L354;
+           break L355;
           }
          }
         } while(0);
@@ -10236,5 +10231,6 @@ run();
 
 
 
+	postMessage({ type: 'end' });
 }
 

@@ -21,5 +21,14 @@ Projects.attachSchema(new SimpleSchema({
 	},
 	"parameters.$.value": {
 		type: String
+	},
+	"results.$.x": {
+		type: Number
+	},
+	"results.$.values": {
+		type: Array
+	},
+	"results.$.values.$": {
+		type: String
 	}
 }));
