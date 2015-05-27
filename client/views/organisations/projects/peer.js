@@ -1,8 +1,6 @@
 if (Meteor.isClient) {
 	Template.projectPeer.events({
 		'click #launch-computation': function (event, template) {
-			console.log(template)
-
 			var progress = Progress.find({ projectId: template.data._id }).fetch()
 
 			function getX() {
@@ -20,17 +18,14 @@ if (Meteor.isClient) {
 			}
 
 			var x = getX();
-			console.log('x:', x);
 
 			var progressId = Progress.insert({ projectId: template.data._id, x: x, status: 'running' });
-			console.log('progressId:', progressId);
 
-			var worker = new Worker('http://localhost:3000/cfs/files/asmjsFiles/5bAqiqpCDNKGoL8N2/pi.js');
+			var worker = new Worker('http://localhost:3000/cfs/files/asmjsFiles/MDgBapGJcfrHq6btE/square.js');
 			var results = [];
 
 			worker.onmessage = function(e) {
 				if (e.data.type === 'output') {
-					console.log('Message received from worker:', e);
 					results.push(e.data.message);
 				} else if(e.data.type === 'end') {
 					console.log('end!', results);
@@ -39,15 +34,10 @@ if (Meteor.isClient) {
 					}});
 
 					Progress.update({ _id: progressId }, { $set: { status: 'done' }});
-					/*Projects.update({ _id: template.data._id, 'progress.id': progressId }, {
-						$set: { 'progress.status': 'done' }
-					});*/
 				}
 			}
 
 			var parameters = (typeof template.data.parameters !== 'undefined') ? template.data.parameters : [];
-
-			console.log("parameters: ", parameters);
 			
 			parameters = parameters.map(function (p) {
 				return math.eval(p.value, { x: x }).toString();
