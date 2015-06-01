@@ -1,4 +1,10 @@
 if (Meteor.isClient) {
+	Template.projectPeer.helpers({
+		isOrganisationMember: function () {
+			return Meteor.user() && this.organisation.members.indexOf(Meteor.userId()) >= 0;
+		}
+	})
+
 	Template.projectPeer.events({
 		'click #launch-computation': function (event, template) {
 			var progress = Progress.find({ projectId: template.data._id }).fetch()

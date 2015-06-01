@@ -5,5 +5,8 @@
 	<button id="launch-computation" class="pure-button pure-button-primary button-xl">Launch computation!</button>
 	<br>
 	<br>
-	<a href="{{_id}}/manage" class="pure-button">Manage Project</a>
+
+	{{#if isOrganisationMember}}
+		<a href="{{_id}}/manage" class="pure-button">Manage Project</a>
+	{{/if}}
 </template>
