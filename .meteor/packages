@@ -19,3 +19,4 @@ cfs:gridfs
 cfs:autoform
 accounts-ui
 accounts-password
+ecwyne:mathjs

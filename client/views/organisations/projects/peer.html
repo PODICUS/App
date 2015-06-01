@@ -1,10 +1,12 @@
 <template name="projectPeer">
 	<h1>Project: {{name}}</h1>
-
 	<div class="description">{{#markdown}}{{{description}}}{{/markdown}}</div>
 
-	<button class="pure-button pure-button-primary button-xl">Launch computation!</button>
+	<button id="launch-computation" class="pure-button pure-button-primary button-xl">Launch computation!</button>
 	<br>
 	<br>
-	<a href="{{_id}}/manage" class="pure-button">Manage Project</a>
+
+	{{#if isOrganisationMember}}
+		<a href="{{_id}}/manage" class="pure-button">Manage Project</a>
+	{{/if}}
 </template>

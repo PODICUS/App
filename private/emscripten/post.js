@@ -1,0 +1,2 @@
+	postMessage({ type: 'end' });
+}

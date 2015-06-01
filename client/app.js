@@ -1,4 +1,3 @@
-
 if (Meteor.isClient) {
 	// Router.onBeforeAction(function() {
 	// 	if (! Meteor.userId()) {
@@ -34,12 +33,10 @@ if (Meteor.isClient) {
 
 		this.route('/organisation/new', {name: 'newOrganisation'});
 
-		// this.route('/organisation/:oid/projects/new', {name: 'newProject'});
-
 		this.route('/account/new', {name: 'newAccount'});
 
 		this.route('/account', function() {
-			var data = Organisations.find({ members: { $elemMatch: { id: Meteor.userId() } } });
+			var data = Organisations.find({ members: Meteor.userId() });
 			this.render('accounts.index', { data: data });
 		});
 
@@ -78,14 +75,17 @@ if (Meteor.isClient) {
 			this.render('manageProject', { data: data });
 		});
 
+		this.route('/project/:pid/results', function () {
+			var project = Projects.findOne({ _id: this.params.pid });
+			var json = JSON.stringify(project.results, null, 4);
+
+			this.render('projectResults', { data: { project: project, json: json }});
+		});
+
 		this.route('/project/:pid/upload-code', function () {
 			var files = AsmjsFiles.find({});
 			this.render('uploadCode', { data: files });
 		});
-
-		this.route('organisation');
-		
-		this.route('peer');
 	});
 
 

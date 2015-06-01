@@ -15,5 +15,20 @@ Projects.attachSchema(new SimpleSchema({
 	},
 	"organisationId" : {
 		type: String
+	},
+	"parameters.$.label": {
+		type: String
+	},
+	"parameters.$.value": {
+		type: String
+	},
+	"results.$.x": {
+		type: Number
+	},
+	"results.$.values": {
+		type: Array
+	},
+	"results.$.values.$": {
+		type: String
 	}
 }));

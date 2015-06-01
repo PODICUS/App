@@ -10,7 +10,7 @@ if(Meteor.isClient) {
 			},
 			after: {
 				insert: function (err, result) {
-					Router.go("/project/" + result + "/manage");
+					Router.go("/project/" + result);
 				}
 			}
 		}
