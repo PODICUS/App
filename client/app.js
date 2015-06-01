@@ -36,7 +36,7 @@ if (Meteor.isClient) {
 		this.route('/account/new', {name: 'newAccount'});
 
 		this.route('/account', function() {
-			var data = Organisations.find({ members: { $elemMatch: { id: Meteor.userId() } } });
+			var data = Organisations.find({ members: Meteor.userId() });
 			this.render('accounts.index', { data: data });
 		});
 
