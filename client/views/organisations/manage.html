@@ -12,7 +12,9 @@
 	<h3>Remove members</h3>
 	<select id="remove-member-select">
 		{{#each organisationUsers}}
+			{{#if isMe _id}}
 			<option value="{{_id}}">{{username}}</option>
+			{{/if}}
 		{{/each}}
 	</select>
 

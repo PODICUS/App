@@ -1,4 +1,11 @@
 if (Meteor.isClient) {
+	Template.manageOrganisation.helpers({
+		isMe: function (id) {
+			console.log(id);
+			return id != Meteor.userId();
+		}
+	});
+
 	Template.manageOrganisation.events({
 		'click #add-member': function (event, template) {
 			var selectedId = $('#add-member-select')[0].value;
