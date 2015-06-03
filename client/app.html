@@ -36,7 +36,11 @@
 	<a href="list">List all organisations</a>
 
 	<h2>Organisations</h2>
-	<a href="organisation/new">Create a new organisation</a>
+	{{#if currentUser}}
+		<a href="organisation/new">Create a new organisation</a>
+	{{else}}
+		Please log in to create a new organisation.
+	{{/if}}
 
 	{{> loginButtons}}
 </div>
