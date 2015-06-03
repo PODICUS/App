@@ -3,8 +3,6 @@
 Meteor.methods({
 
   uploadCode: function(post){
-
-  	console.log("uiytrgyhi");
   }
 });
 
@@ -13,9 +11,6 @@ Meteor.methods({
 
 // if(Meteor.isClient) {
 // if(Meteor.isServer) {
-
-	console.log("sadasdasd");
-
 	// exec = Npm.require('child_process').exec;
 
 	// var runCommand = function (error, stdout, stderr) {

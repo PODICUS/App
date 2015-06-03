@@ -1,4 +1,5 @@
 <template name="manageProject">
+	<a href="/project/{{_id}}">&larr; Back to peer view</a>
 	<h1>Manage Project: {{name}}</h1>
 	{{#autoForm collection="Projects" doc=this id="manageProject" type="update"}}
 		{{> afQuickField name='name'}}
