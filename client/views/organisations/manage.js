@@ -1,7 +1,6 @@
 if (Meteor.isClient) {
 	Template.manageOrganisation.helpers({
 		isMe: function (id) {
-			console.log(id);
 			return id != Meteor.userId();
 		}
 	});
