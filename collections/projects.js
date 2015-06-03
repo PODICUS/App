@@ -22,6 +22,10 @@ Projects.attachSchema(new SimpleSchema({
 	"parameters.$.value": {
 		type: String
 	},
+	"redundancy": {
+		type: String,
+		optional: true
+	},
 	"results.$.x": {
 		type: Number
 	},

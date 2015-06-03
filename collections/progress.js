@@ -6,7 +6,10 @@ Progress.attachSchema(new SimpleSchema({
 	"x": {
 		type: Number
 	},
-	"status": {
-		type: String
+	"done": {
+		type: Number
+	},
+	"incomplete": {
+		type: Number
 	}
 }));

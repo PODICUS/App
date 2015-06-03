@@ -7,25 +7,31 @@ if (Meteor.isClient) {
 
 	Template.projectPeer.events({
 		'click #launch-computation': function (event, template) {
-			var progress = Progress.find({ projectId: template.data._id }).fetch()
+			var progress = Progress.find({ projectId: template.data._id }).fetch();
+			var progressId = null;
 
 			function getX() {
 				var x = 0;
 
 				for (var i = 0, l = progress.length; i < l; i++) {
-					if (progress[i].status === 'incomplete') {
+					if (progress[i].done + progress[i].incomplete < math.eval(template.data.redundancy, { x: x })) {
+						progressId = progress[i]._id;
+						Progress.update({ _id: progressId }, { $inc: { incomplete: 1 } });
+						
 						return progress[i].x;
 					}
 
 					var x = progress[i].x + 1;
 				}
 
+				progressId = Progress.insert({ projectId: template.data._id, x: x, done: 0, incomplete: 1 });
+
 				return x;
 			}
 
 			var x = getX();
-
-			var progressId = Progress.insert({ projectId: template.data._id, x: x, status: 'running' });
+			console.log(x);
+			console.log(progressId);
 
 			var worker = new Worker('http://localhost:3000/cfs/files/asmjsFiles/MDgBapGJcfrHq6btE/square.js');
 			var results = [];
@@ -39,7 +45,7 @@ if (Meteor.isClient) {
 						results: { x: x, values: results }
 					}});
 
-					Progress.update({ _id: progressId }, { $set: { status: 'done' }});
+					Progress.update({ _id: progressId }, { $inc: { done: 1, incomplete: -1 } });
 				}
 			}
 
