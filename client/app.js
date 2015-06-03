@@ -58,6 +58,21 @@ if (Meteor.isClient) {
 			});
 		});
 
+		this.route('/organisation/:oid/manage', function () {
+			var oid = this.params.oid;
+			var organisation = Organisations.findOne({ _id: oid });
+			var nonOrganisationUsers = Meteor.users.find({ _id: { $nin: organisation.members } });
+			var organisationUsers = Meteor.users.find({ _id: { $in: organisation.members } });
+
+			this.render('manageOrganisation', {
+				data: {
+					organisation: organisation,
+					nonOrganisationUsers: nonOrganisationUsers,
+					organisationUsers: organisationUsers
+				}
+			});
+		});
+
 		this.route('/organisation/:oid/new-project', function () {
 			var data = Organisations.findOne({ _id: this.params.oid });
 			this.render('newProject', { data: data });

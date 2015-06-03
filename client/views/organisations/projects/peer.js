@@ -30,8 +30,6 @@ if (Meteor.isClient) {
 			}
 
 			var x = getX();
-			console.log(x);
-			console.log(progressId);
 
 			var worker = new Worker('http://localhost:3000/cfs/files/asmjsFiles/MDgBapGJcfrHq6btE/square.js');
 			var results = [];

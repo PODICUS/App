@@ -1,0 +1,29 @@
+<template name="manageOrganisation">
+	<h1>Manage organisation: {{organisation.name}}</h1>
+	<h2>Manage Members</h2>
+
+	<h3>Current members</h3>
+	<ul>
+	{{#each organisationUsers}}
+		<li>{{username}}</li>
+	{{/each}}
+	</ul>
+
+	<h3>Remove members</h3>
+	<select id="remove-member-select">
+		{{#each organisationUsers}}
+			<option value="{{_id}}">{{username}}</option>
+		{{/each}}
+	</select>
+
+	<button type="button" id="remove-member" class="btn btn-primary autoform-remove-item"><span class="glyphicon glyphicon-minus"></span></button>
+	
+	<h3>Add new members</h3>
+	<select id="add-member-select">
+		{{#each nonOrganisationUsers}}
+			<option value="{{_id}}">{{username}}</option>
+		{{/each}}
+	</select>
+
+	<button type="button" id="add-member" class="btn btn-primary autoform-add-item"><span class="glyphicon glyphicon-plus"></span></button>
+</template>
