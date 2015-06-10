@@ -1,0 +1,29 @@
+<template name="admin">
+	<h1>Manage Admins</h1>
+	<h3>Current admins</h3>
+	<ul>
+	{{#each admins}}
+		<li>{{username}}</li>
+	{{/each}}
+	</ul>
+
+	<h3>Remove admins</h3>
+	<select id="remove-admin-select">
+		{{#each admins}}
+			{{#if isMe _id}}
+			<option value="{{_id}}">{{username}}</option>
+			{{/if}}
+		{{/each}}
+	</select>
+
+	<button type="button" id="remove-admin" class="btn btn-primary autoform-remove-item"><span class="glyphicon glyphicon-minus"></span></button>
+	
+	<h3>Add new members</h3>
+	<select id="add-admin-select">
+		{{#each nonAdmins}}
+			<option value="{{_id}}">{{username}}</option>
+		{{/each}}
+	</select>
+
+	<button type="button" id="add-admin" class="btn btn-primary autoform-add-item"><span class="glyphicon glyphicon-plus"></span></button>
+</template>

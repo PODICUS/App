@@ -101,6 +101,19 @@ if (Meteor.isClient) {
 			var files = AsmjsFiles.find({});
 			this.render('uploadCode', { data: files });
 		});
+
+		this.route('/admin', function () {
+			var admins = Admins.find({}).fetch().map(function (e) { return e.memberId });
+			var nonAdminUsers = Meteor.users.find({ _id: { $nin: admins } });
+			var adminUsers = Meteor.users.find({ _id: { $in: admins } });
+
+			this.render('admin', {
+				data: {
+					admins: adminUsers,
+					nonAdmins: nonAdminUsers
+				}
+			});
+		});
 	});
 
 

@@ -1,7 +1,8 @@
 if (Meteor.isClient) {
 	Template.projectPeer.helpers({
 		isOrganisationMember: function () {
-			return Meteor.user() && Organisations.findOne({ _id: this.organisationId }).members.indexOf(Meteor.userId()) >= 0;
+			return Meteor.user() && (Organisations.findOne({ _id: this.organisationId }).members.indexOf(Meteor.userId()) >= 0 ||
+				typeof Admins.findOne({ memberId: Meteor.userId() }) !== 'undefined');
 		}
 	})
 
