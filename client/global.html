@@ -7,6 +7,9 @@
         {{#if currentUser}}
         <li class="pure-menu-item"><a href="/account" class="pure-menu-link">My account</a></li>
         {{/if}}
+        {{#if isAdmin}}
+        <li class="pure-menu-item"><a href="/admin" class="pure-menu-link">Admin</a></li>
+        {{/if}}
         <li class="pure-menu-item">{{> loginButtons}}</li>
     </ul>
 </div>
