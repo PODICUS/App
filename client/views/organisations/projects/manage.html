@@ -1,14 +1,15 @@
 <template name="manageProject">
 	<a href="/project/{{_id}}">&larr; Back to peer view</a>
 	<h1>Manage Project: {{name}}</h1>
-	{{#autoForm collection="Projects" doc=this id="manageProject" type="update"}}
+	{{#autoForm collection="Projects" doc=this id="manageProject" type="update" class="pure-form pure-form-aligned"}}
 		{{> afQuickField name='name'}}
 		{{> afQuickField name='description'}}
 		{{> afQuickField name='hidden'}}
 		{{> afQuickField name='parameters'}}
 		{{> afQuickField name='redundancy'}}
-   		<button type="submit" class="btn btn-primary">Update</button>
+   		
+   		<button type="submit" class="pure-button btn pure-button-primary">Update</button>
 	{{/autoForm}}
-	<a href="upload-code">Upload your code</a><br>
-	<a href="results">Show results</a>
+	<a href="upload-code" class="pure-button btn btn-primary">Upload your code</a><br>
+	<a href="results" class="pure-button btn btn-primary">Show results</a>
 </template>
